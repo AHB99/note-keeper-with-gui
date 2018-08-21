@@ -175,12 +175,16 @@ void NotePool::editMessageByID(int id, const std::string& newMessage) {
 
 void NotePool::fillListWithNotePool(QListWidget* destinationList) const {
 	for (auto& note : pool) {
-		QListWidgetItem * item = new QListWidgetItem(destinationList);
-		NoteWidget * noteWidgetBeingAdded(note.convertToNoteWidget());
-		item->setSizeHint(noteWidgetBeingAdded->sizeHint());
-		destinationList->setItemWidget(item, noteWidgetBeingAdded);
+		note.addNoteToList(destinationList);
 	}
 }
+
+void NotePool::addNoteToPoolFromDialog(const std::string& titleFromDialog, const std::string& messageFromDialog) {
+	Note noteToAdd;
+	noteToAdd.setNoteByDialogInput(*this, titleFromDialog, messageFromDialog);
+	this->addNote(noteToAdd);
+}
+
 
 
 

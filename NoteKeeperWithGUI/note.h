@@ -9,6 +9,7 @@
 #include "NoteWidget.h"
 
 class NotePool;
+class QListWidget;
 
 class Note {
 	friend NotePool loadNoteAndTagPool(const std::string&, const std::string&);
@@ -25,8 +26,7 @@ public:
 	bool deleteTag(const std::string&);
 	void setTitle(const std::string&);
 	void setMessage(const std::string&);
-	//returns pointer to dynamically allocated notewidget form of a given note
-	NoteWidget* convertToNoteWidget() const;
+	void addNoteToList(QListWidget* destinationList) const;
 
 	void setNoteByDialogInput(const NotePool&, const std::string&, const std::string&);
 
@@ -38,6 +38,10 @@ private:
 	void setValidID(const NotePool&);
 
 	int findTagIndex(const std::string&) const;
+
+	//returns pointer to dynamically allocated notewidget form of a given note
+	//helper for adding note to list
+	NoteWidget* convertToNoteWidget() const;
 
 	std::string title = "Debug Title";
 	std::string message = "Debug Message that has text for this note.";

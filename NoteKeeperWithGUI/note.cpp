@@ -175,9 +175,20 @@ NoteWidget* Note::convertToNoteWidget() const {
 	return resultNoteWidget;
 }
 
-void setNoteByDialogInput(const NotePool&, const std::string&, const std::string&) {
-
+void Note::setNoteByDialogInput(const NotePool& destinationPool, const std::string& titleFromDialog, const std::string& messageFromDialog) {
+	title = titleFromDialog;
+	message = messageFromDialog;
+	this->setValidID(destinationPool);
+	this->setCurrentTime();
 }
+
+void Note::addNoteToList(QListWidget* destinationList) const {
+	QListWidgetItem * item = new QListWidgetItem(destinationList);
+	NoteWidget * noteWidgetBeingAdded(this->convertToNoteWidget());
+	item->setSizeHint(noteWidgetBeingAdded->sizeHint());
+	destinationList->setItemWidget(item, noteWidgetBeingAdded);
+}
+
 
 
 

@@ -13,5 +13,11 @@ void NoteKeeperWithGUI::on_viewAllButton_clicked() {
 
 void NoteKeeperWithGUI::on_addNoteButton_clicked() {
 	AddNoteDialog addNoteDialog(this);
-	addNoteDialog.exec();
+	if (addNoteDialog.exec()) {
+		QString tempTitle = addNoteDialog.addTitleLineEdit->text();
+		QString tempMessage = addNoteDialog.addMessagePlainTextEdit->toPlainText();
+		mainPool->addNoteToPoolFromDialog(tempTitle.toStdString(), tempMessage.toStdString());
+		ui.notesList->clear();
+		mainPool->fillListWithNotePool(ui.notesList);
+	}
 }
