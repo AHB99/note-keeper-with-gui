@@ -179,9 +179,9 @@ void NotePool::fillListWithNotePool(QListWidget* destinationList) const {
 	}
 }
 
-void NotePool::addNoteToPoolFromDialog(const std::string& titleFromDialog, const std::string& messageFromDialog) {
+void NotePool::addNoteToPoolFromDialog(const std::string& titleFromDialog, const std::string& messageFromDialog, const std::vector<std::string>& resourcesFromDialog) {
 	Note noteToAdd;
-	noteToAdd.setNoteByDialogInput(*this, titleFromDialog, messageFromDialog);
+	noteToAdd.setNoteByDialogInput(*this, titleFromDialog, messageFromDialog, resourcesFromDialog);
 	this->addNote(noteToAdd);
 }
 

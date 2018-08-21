@@ -9,3 +9,9 @@ AddNoteDialog::AddNoteDialog(QWidget *parent)
 AddNoteDialog::~AddNoteDialog()
 {
 }
+
+void AddNoteDialog::on_addResourceButton_clicked() {
+	QListWidgetItem * item = new QListWidgetItem(this->addResourceLineEdit->text(),this->currentResourcesList);
+	this->addResourceLineEdit->clear();
+}
+

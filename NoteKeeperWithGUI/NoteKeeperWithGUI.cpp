@@ -16,8 +16,18 @@ void NoteKeeperWithGUI::on_addNoteButton_clicked() {
 	if (addNoteDialog.exec()) {
 		QString tempTitle = addNoteDialog.addTitleLineEdit->text();
 		QString tempMessage = addNoteDialog.addMessagePlainTextEdit->toPlainText();
-		mainPool->addNoteToPoolFromDialog(tempTitle.toStdString(), tempMessage.toStdString());
+
+		mainPool->addNoteToPoolFromDialog(tempTitle.toStdString(), tempMessage.toStdString(), extractResources(addNoteDialog.currentResourcesList));
 		ui.notesList->clear();
 		mainPool->fillListWithNotePool(ui.notesList);
 	}
 }
+
+std::vector<std::string> extractResources(QListWidget* sourceList) {
+	std::vector<std::string> result;
+	for (int i = 0; i < sourceList->count(); ++i) {
+		result.push_back((sourceList->item(i)->text()).toStdString());
+	}
+	return result;
+}
+

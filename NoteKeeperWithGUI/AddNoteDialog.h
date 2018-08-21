@@ -2,6 +2,7 @@
 
 #include <QDialog>
 #include "ui_AddNoteDialog.h"
+#include <qlistwidget.h>
 
 class AddNoteDialog : public QDialog, public Ui::AddNoteDialog
 {
@@ -10,4 +11,6 @@ class AddNoteDialog : public QDialog, public Ui::AddNoteDialog
 public:
 	AddNoteDialog(QWidget *parent = Q_NULLPTR);
 	~AddNoteDialog();
+	private slots:
+	void on_addResourceButton_clicked();
 };

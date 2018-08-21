@@ -25,6 +25,7 @@ private:
 	void on_addNoteButton_clicked();
 };
 
+std::vector<std::string> extractResources(QListWidget*);
 
 namespace configurations {
 	const std::string NOTE_FILE = "noteSave.txt";

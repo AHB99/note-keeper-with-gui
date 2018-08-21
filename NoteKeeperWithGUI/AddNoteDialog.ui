@@ -6,16 +6,16 @@
    <rect>
     <x>0</x>
     <y>0</y>
-    <width>332</width>
-    <height>306</height>
+    <width>438</width>
+    <height>397</height>
    </rect>
   </property>
   <property name="windowTitle">
    <string>AddNoteDialog</string>
   </property>
-  <layout class="QVBoxLayout" name="verticalLayout_3">
+  <layout class="QVBoxLayout" name="verticalLayout_4">
    <item>
-    <layout class="QVBoxLayout" name="verticalLayout_2">
+    <layout class="QVBoxLayout" name="verticalLayout_3">
      <item>
       <layout class="QHBoxLayout" name="horizontalLayout_2">
        <item>
@@ -58,6 +58,58 @@
        </item>
        <item>
         <widget class="QPlainTextEdit" name="addMessagePlainTextEdit"/>
+       </item>
+      </layout>
+     </item>
+     <item>
+      <layout class="QHBoxLayout" name="horizontalLayout_5">
+       <item>
+        <layout class="QVBoxLayout" name="verticalLayout_2">
+         <item>
+          <widget class="QLabel" name="CurrentResourcesDirectLabel">
+           <property name="text">
+            <string>Current Resources:</string>
+           </property>
+          </widget>
+         </item>
+         <item>
+          <spacer name="verticalSpacer_2">
+           <property name="orientation">
+            <enum>Qt::Vertical</enum>
+           </property>
+           <property name="sizeHint" stdset="0">
+            <size>
+             <width>20</width>
+             <height>17</height>
+            </size>
+           </property>
+          </spacer>
+         </item>
+        </layout>
+       </item>
+       <item>
+        <widget class="QListWidget" name="currentResourcesList"/>
+       </item>
+      </layout>
+     </item>
+     <item>
+      <layout class="QHBoxLayout" name="horizontalLayout_4">
+       <item>
+        <widget class="QLabel" name="enterResourceDirectLabel">
+         <property name="text">
+          <string>Enter Resource:</string>
+         </property>
+        </widget>
+       </item>
+       <item>
+        <widget class="QLineEdit" name="addResourceLineEdit"/>
+       </item>
+       <item>
+        <widget class="QPushButton" name="addResourceButton">
+         <property name="text">
+          <string>Add Resource</string>
+         </property>
+        </widget>
        </item>
       </layout>
      </item>
