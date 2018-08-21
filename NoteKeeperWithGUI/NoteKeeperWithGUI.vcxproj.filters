@@ -48,6 +48,9 @@
     <ClCompile Include="TestWidg.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
+    <ClCompile Include="NoteWidget.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <QtMoc Include="NoteKeeperWithGUI.h">
@@ -56,12 +59,18 @@
     <QtMoc Include="TestWidg.h">
       <Filter>Header Files</Filter>
     </QtMoc>
+    <QtMoc Include="NoteWidget.h">
+      <Filter>Header Files</Filter>
+    </QtMoc>
   </ItemGroup>
   <ItemGroup>
     <QtUic Include="NoteKeeperWithGUI.ui">
       <Filter>Form Files</Filter>
     </QtUic>
     <QtUic Include="TestWidg.ui">
+      <Filter>Form Files</Filter>
+    </QtUic>
+    <QtUic Include="NoteWidget.ui">
       <Filter>Form Files</Filter>
     </QtUic>
   </ItemGroup>

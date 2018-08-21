@@ -6,8 +6,8 @@
    <rect>
     <x>0</x>
     <y>0</y>
-    <width>400</width>
-    <height>300</height>
+    <width>186</width>
+    <height>92</height>
    </rect>
   </property>
   <property name="windowTitle">
@@ -24,7 +24,7 @@
         </font>
        </property>
        <property name="text">
-        <string>Blah blah blah but now it is really long i mean really really really really really long to test it</string>
+        <string>Blah blah blah but nowit</string>
        </property>
       </widget>
      </item>
