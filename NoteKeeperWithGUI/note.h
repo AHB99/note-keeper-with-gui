@@ -6,6 +6,7 @@
 #include <string>
 #include <ctime>
 #include <fstream>
+#include "NoteWidget.h"
 
 class NotePool;
 
@@ -24,6 +25,8 @@ public:
 	bool deleteTag(const std::string&);
 	void setTitle(const std::string&);
 	void setMessage(const std::string&);
+	//returns pointer to dynamically allocated notewidget form of a given note
+	NoteWidget* convertToNoteWidget() const;
 
 	
 private:
@@ -36,8 +39,8 @@ private:
 
 	std::string title = "Debug Title";
 	std::string message = "Debug Message that has text for this note.";
-	std::vector<std::string> resourceLinks;
-	std::vector<std::string> tags;
+	std::vector<std::string> resourceLinks = {"blah", "google.com", "amazon.com"};
+	std::vector<std::string> tags = { "work", "studies", "testing" };
 	std::string timeStamp = "DEBUG TIME STAMP";
 	int uniqueID = -1;
 };

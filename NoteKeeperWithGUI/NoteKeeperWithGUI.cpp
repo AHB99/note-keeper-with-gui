@@ -1,7 +1,4 @@
 #include "NoteKeeperWithGUI.h"
-#include <qlistwidget.h>
-#include "TestWidg.h"
-#include "NoteWidget.h"
 
 NoteKeeperWithGUI::NoteKeeperWithGUI(QWidget *parent)
 	: QWidget(parent)
@@ -13,8 +10,9 @@ void NoteKeeperWithGUI::on_testButton_clicked() {
 	QListWidgetItem * item = new QListWidgetItem(ui.notesList);
 	//TestWidg*  realItem = new TestWidg;
 	//item->setSizeHint(realItem->sizeHint());
+	Note actualBaseNote;
+	NoteWidget * testNote (actualBaseNote.convertToNoteWidget());
 
-	NoteWidget * testNote = new NoteWidget(ui.notesList);
 	item->setSizeHint(testNote->sizeHint());
 	ui.notesList->setItemWidget(item, testNote);
 }

@@ -2,6 +2,10 @@
 
 #include <QtWidgets/QWidget>
 #include "ui_NoteKeeperWithGUI.h"
+#include <qlistwidget.h>
+#include "TestWidg.h"
+#include "NoteWidget.h"
+#include "note.h"
 
 class NoteKeeperWithGUI : public QWidget
 {

@@ -148,6 +148,34 @@ void Note::setMessage(const std::string& newMessage) {
 	message = newMessage;
 }
 
+NoteWidget* Note::convertToNoteWidget() const {
+	NoteWidget* resultNoteWidget = new NoteWidget;
+
+	std::string stdStringID = "#" + std::to_string(uniqueID);
+	resultNoteWidget->idLabel->setText(QString::fromStdString(stdStringID));
+
+	resultNoteWidget->titleLabel->setText(QString::fromStdString(title));
+	resultNoteWidget->messageLabel->setText(QString::fromStdString(message));
+
+	for (auto & link : resourceLinks) {
+		resultNoteWidget->resourceComboBox->addItem(QString::fromStdString(link));
+	}
+
+	if (!tags.empty()) {
+		QString tempTagList;
+		for (auto beg = tags.begin(); beg != (tags.end() - 1); ++beg) {
+			tempTagList.append(QString::fromStdString(*beg));
+			tempTagList.append(", ");
+		}
+		tempTagList.append(QString::fromStdString(tags.back()));
+		resultNoteWidget->tagsContentLabel->setText(tempTagList);
+	}
+	resultNoteWidget->timeStampLabel->setText(QString::fromStdString(timeStamp));
+
+	return resultNoteWidget;
+}
+
+
 
 
 
