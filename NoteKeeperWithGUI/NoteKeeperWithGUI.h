@@ -6,6 +6,7 @@
 #include "TestWidg.h"
 #include "NoteWidget.h"
 #include "note.h"
+#include "notepool.h"
 
 class NoteKeeperWithGUI : public QWidget
 {

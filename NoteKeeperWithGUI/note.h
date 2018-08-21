@@ -39,8 +39,8 @@ private:
 
 	std::string title = "Debug Title";
 	std::string message = "Debug Message that has text for this note.";
-	std::vector<std::string> resourceLinks = {"blah", "google.com", "amazon.com"};
-	std::vector<std::string> tags = { "work", "studies", "testing" };
+	std::vector<std::string> resourceLinks;
+	std::vector<std::string> tags;
 	std::string timeStamp = "DEBUG TIME STAMP";
 	int uniqueID = -1;
 };

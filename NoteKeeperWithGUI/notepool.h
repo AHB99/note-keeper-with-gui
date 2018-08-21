@@ -6,6 +6,7 @@
 #include <vector>
 #include <stdexcept>
 #include "tagpool.h"
+#include <qlistwidget.h>
 
 class Note;
 
@@ -26,6 +27,8 @@ public:
 	NotePool filterByTitle(const std::string&) const;
 	void editTitleByID(int, const std::string&);
 	void editMessageByID(int, const std::string&);
+
+	void fillListWithNotePool(QListWidget*) const;
 
 
 	TagPool tagPool;

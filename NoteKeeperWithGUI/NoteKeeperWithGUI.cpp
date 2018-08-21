@@ -7,12 +7,8 @@ NoteKeeperWithGUI::NoteKeeperWithGUI(QWidget *parent)
 }
 
 void NoteKeeperWithGUI::on_testButton_clicked() {
-	QListWidgetItem * item = new QListWidgetItem(ui.notesList);
-	//TestWidg*  realItem = new TestWidg;
-	//item->setSizeHint(realItem->sizeHint());
-	Note actualBaseNote;
-	NoteWidget * testNote (actualBaseNote.convertToNoteWidget());
+	
+	NotePool testPool(loadNoteAndTagPool("noteSave.txt", "tagSave.txt"));
+	testPool.fillListWithNotePool(ui.notesList);
 
-	item->setSizeHint(testNote->sizeHint());
-	ui.notesList->setItemWidget(item, testNote);
 }
