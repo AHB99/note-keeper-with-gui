@@ -11,6 +11,7 @@ void NoteKeeperWithGUI::on_viewAllButton_clicked() {
 	mainPool->fillListWithNotePool(ui.notesList);
 }
 
-void viewAllNoteWidgets(const NotePool& mainPool, QListWidget* destinationList){
-
+void NoteKeeperWithGUI::on_addNoteButton_clicked() {
+	AddNoteDialog addNoteDialog(this);
+	addNoteDialog.exec();
 }

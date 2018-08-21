@@ -13,18 +13,29 @@
   <property name="windowTitle">
    <string>NoteKeeperWithGUI</string>
   </property>
-  <layout class="QHBoxLayout" name="horizontalLayout_2">
+  <layout class="QVBoxLayout" name="verticalLayout_2">
    <item>
     <layout class="QHBoxLayout" name="horizontalLayout">
      <item>
       <widget class="QListWidget" name="notesList"/>
      </item>
      <item>
-      <widget class="QPushButton" name="viewAllButton">
-       <property name="text">
-        <string>View All</string>
-       </property>
-      </widget>
+      <layout class="QVBoxLayout" name="verticalLayout">
+       <item>
+        <widget class="QPushButton" name="viewAllButton">
+         <property name="text">
+          <string>View All</string>
+         </property>
+        </widget>
+       </item>
+       <item>
+        <widget class="QPushButton" name="addNoteButton">
+         <property name="text">
+          <string>Add Note</string>
+         </property>
+        </widget>
+       </item>
+      </layout>
      </item>
     </layout>
    </item>

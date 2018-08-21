@@ -28,6 +28,8 @@ public:
 	//returns pointer to dynamically allocated notewidget form of a given note
 	NoteWidget* convertToNoteWidget() const;
 
+	void setNoteByDialogInput(const NotePool&, const std::string&, const std::string&);
+
 	
 private:
 	void addResourceLink(const std::string&);

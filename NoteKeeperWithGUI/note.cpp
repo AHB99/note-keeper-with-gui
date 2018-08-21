@@ -175,6 +175,13 @@ NoteWidget* Note::convertToNoteWidget() const {
 	return resultNoteWidget;
 }
 
+void setNoteByDialogInput(const NotePool&, const std::string&, const std::string&) {
+
+}
+
+
+
+
 
 
 

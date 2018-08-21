@@ -7,6 +7,7 @@
 #include "NoteWidget.h"
 #include "note.h"
 #include "notepool.h"
+#include "AddNoteDialog.h"
 
 class NoteKeeperWithGUI : public QWidget
 {
@@ -21,9 +22,9 @@ private:
 
 	private slots:
 	void on_viewAllButton_clicked();
+	void on_addNoteButton_clicked();
 };
 
-void viewAllNoteWidgets(const NotePool&, QListWidget*);
 
 namespace configurations {
 	const std::string NOTE_FILE = "noteSave.txt";
