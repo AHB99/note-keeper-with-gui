@@ -20,9 +20,9 @@
       <widget class="QListWidget" name="notesList"/>
      </item>
      <item>
-      <widget class="QPushButton" name="testButton">
+      <widget class="QPushButton" name="viewAllButton">
        <property name="text">
-        <string>PushButton</string>
+        <string>View All</string>
        </property>
       </widget>
      </item>

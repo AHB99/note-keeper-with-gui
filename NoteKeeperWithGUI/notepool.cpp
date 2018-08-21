@@ -179,7 +179,6 @@ void NotePool::fillListWithNotePool(QListWidget* destinationList) const {
 		NoteWidget * noteWidgetBeingAdded(note.convertToNoteWidget());
 		item->setSizeHint(noteWidgetBeingAdded->sizeHint());
 		destinationList->setItemWidget(item, noteWidgetBeingAdded);
-
 	}
 }
 

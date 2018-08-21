@@ -13,10 +13,19 @@ class NoteKeeperWithGUI : public QWidget
 	Q_OBJECT
 
 public:
-	NoteKeeperWithGUI(QWidget *parent = Q_NULLPTR);
+	NoteKeeperWithGUI(QWidget *parent = Q_NULLPTR, NotePool* givenPool = nullptr);
 
 private:
 	Ui::NoteKeeperWithGUIClass ui;
+	NotePool* mainPool;
+
 	private slots:
-	void on_testButton_clicked();
+	void on_viewAllButton_clicked();
 };
+
+void viewAllNoteWidgets(const NotePool&, QListWidget*);
+
+namespace configurations {
+	const std::string NOTE_FILE = "noteSave.txt";
+	const std::string TAG_FILE = "tagSave.txt";
+}

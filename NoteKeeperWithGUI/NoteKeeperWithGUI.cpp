@@ -1,14 +1,16 @@
 #include "NoteKeeperWithGUI.h"
 
-NoteKeeperWithGUI::NoteKeeperWithGUI(QWidget *parent)
-	: QWidget(parent)
+NoteKeeperWithGUI::NoteKeeperWithGUI(QWidget *parent, NotePool* givenPool)
+	: QWidget(parent), mainPool(givenPool)
 {
 	ui.setupUi(this);
+	mainPool->fillListWithNotePool(ui.notesList);
 }
 
-void NoteKeeperWithGUI::on_testButton_clicked() {
-	
-	NotePool testPool(loadNoteAndTagPool("noteSave.txt", "tagSave.txt"));
-	testPool.fillListWithNotePool(ui.notesList);
+void NoteKeeperWithGUI::on_viewAllButton_clicked() {
+	mainPool->fillListWithNotePool(ui.notesList);
+}
+
+void viewAllNoteWidgets(const NotePool& mainPool, QListWidget* destinationList){
 
 }
