@@ -15,3 +15,8 @@ void AddNoteDialog::on_addResourceButton_clicked() {
 	this->addResourceLineEdit->clear();
 }
 
+void AddNoteDialog::on_addTagsComboBox_activated(const QString& selectedTag) {
+	currentTagsList->addItem(selectedTag);
+}
+
+

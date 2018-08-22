@@ -175,10 +175,11 @@ NoteWidget* Note::convertToNoteWidget() const {
 	return resultNoteWidget;
 }
 
-void Note::setNoteByDialogInput(const NotePool& destinationPool, const std::string& titleFromDialog, const std::string& messageFromDialog, const std::vector<std::string>& resourcesFromDialog) {
+void Note::setNoteByDialogInput(const NotePool& destinationPool, const std::string& titleFromDialog, const std::string& messageFromDialog, const std::vector<std::string>& resourcesFromDialog, const std::vector<std::string>& tagsFromDialog) {
 	title = titleFromDialog;
 	message = messageFromDialog;
 	resourceLinks = resourcesFromDialog;
+	tags = tagsFromDialog;
 	this->setValidID(destinationPool);
 	this->setCurrentTime();
 }

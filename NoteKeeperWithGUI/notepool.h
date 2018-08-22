@@ -30,8 +30,8 @@ public:
 
 	void fillListWithNotePool(QListWidget*) const;
 
-	void addNoteToPoolFromDialog(const std::string&, const std::string&, const std::vector<std::string>&);
-
+	void addNoteToPoolFromDialog(const std::string&, const std::string&, const std::vector<std::string>&, const std::vector<std::string>&);
+	void updateTagPool(const std::vector<std::string>&);
 
 	TagPool tagPool;
 

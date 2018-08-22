@@ -179,11 +179,20 @@ void NotePool::fillListWithNotePool(QListWidget* destinationList) const {
 	}
 }
 
-void NotePool::addNoteToPoolFromDialog(const std::string& titleFromDialog, const std::string& messageFromDialog, const std::vector<std::string>& resourcesFromDialog) {
+void NotePool::addNoteToPoolFromDialog(const std::string& titleFromDialog, const std::string& messageFromDialog, const std::vector<std::string>& resourcesFromDialog, const std::vector<std::string>& tagsFromDialog) {
 	Note noteToAdd;
-	noteToAdd.setNoteByDialogInput(*this, titleFromDialog, messageFromDialog, resourcesFromDialog);
+	noteToAdd.setNoteByDialogInput(*this, titleFromDialog, messageFromDialog, resourcesFromDialog, tagsFromDialog);
 	this->addNote(noteToAdd);
 }
+
+void NotePool::updateTagPool(const std::vector<std::string>& tagsOfNewNote) {
+	for (auto&tag : tagsOfNewNote) {
+		if (!tagPool.tagExists(tag)) {
+			tagPool.addTagToPool(tag);
+		}
+	}
+}
+
 
 
 

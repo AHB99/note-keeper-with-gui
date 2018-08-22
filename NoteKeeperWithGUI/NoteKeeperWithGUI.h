@@ -17,6 +17,8 @@ public:
 	NoteKeeperWithGUI(QWidget *parent = Q_NULLPTR, NotePool* givenPool = nullptr);
 
 private:
+	void extractExistingTagsToComboBox(QComboBox*);
+
 	Ui::NoteKeeperWithGUIClass ui;
 	NotePool* mainPool;
 
@@ -25,7 +27,8 @@ private:
 	void on_addNoteButton_clicked();
 };
 
-std::vector<std::string> extractResources(QListWidget*);
+std::vector<std::string> extractListToVectorOfStrings(QListWidget*);
+
 
 namespace configurations {
 	const std::string NOTE_FILE = "noteSave.txt";

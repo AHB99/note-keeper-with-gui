@@ -80,5 +80,9 @@ TagPool loadTagPool(const std::string& fileName) {
 	return result;
 }
 
+std::vector<std::string> TagPool::getTagPool() const {
+	return pool;
+}
+
 
 

@@ -13,4 +13,5 @@ public:
 	~AddNoteDialog();
 	private slots:
 	void on_addResourceButton_clicked();
+	void on_addTagsComboBox_activated(const QString&);
 };

@@ -13,21 +13,32 @@ void NoteKeeperWithGUI::on_viewAllButton_clicked() {
 
 void NoteKeeperWithGUI::on_addNoteButton_clicked() {
 	AddNoteDialog addNoteDialog(this);
-	if (addNoteDialog.exec()) {
-		QString tempTitle = addNoteDialog.addTitleLineEdit->text();
-		QString tempMessage = addNoteDialog.addMessagePlainTextEdit->toPlainText();
+	extractExistingTagsToComboBox(addNoteDialog.addTagsComboBox);
 
-		mainPool->addNoteToPoolFromDialog(tempTitle.toStdString(), tempMessage.toStdString(), extractResources(addNoteDialog.currentResourcesList));
+	if (addNoteDialog.exec()) {
+		std::vector<std::string> tagsOfNewNote(extractListToVectorOfStrings(addNoteDialog.currentTagsList));
+		mainPool->updateTagPool(tagsOfNewNote);
+
+		mainPool->addNoteToPoolFromDialog(addNoteDialog.addTitleLineEdit->text().toStdString(), addNoteDialog.addMessagePlainTextEdit->toPlainText().toStdString(), extractListToVectorOfStrings(addNoteDialog.currentResourcesList),tagsOfNewNote);
 		ui.notesList->clear();
 		mainPool->fillListWithNotePool(ui.notesList);
 	}
 }
 
-std::vector<std::string> extractResources(QListWidget* sourceList) {
+std::vector<std::string> extractListToVectorOfStrings(QListWidget* sourceList) {
 	std::vector<std::string> result;
 	for (int i = 0; i < sourceList->count(); ++i) {
 		result.push_back((sourceList->item(i)->text()).toStdString());
 	}
 	return result;
 }
+
+void NoteKeeperWithGUI::extractExistingTagsToComboBox(QComboBox* comboBox) {
+	for (auto& existingTag : mainPool->tagPool.getTagPool()) {
+		comboBox->addItem(QString::fromStdString(existingTag));
+	}
+	comboBox->clearEditText();
+}
+
+
 

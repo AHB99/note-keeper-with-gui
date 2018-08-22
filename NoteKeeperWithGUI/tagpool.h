@@ -13,6 +13,7 @@ public:
 	void addTagToPool(const std::string&);
 	bool removeTagFromTagPool(const std::string&);
 	void storeTagPool(const std::string&) const;
+	std::vector<std::string> getTagPool() const;
 
 private:
 	//helper to finder and remover

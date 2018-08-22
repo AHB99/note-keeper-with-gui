@@ -28,7 +28,7 @@ public:
 	void setMessage(const std::string&);
 	void addNoteToList(QListWidget* destinationList) const;
 
-	void setNoteByDialogInput(const NotePool&, const std::string&, const std::string&, const std::vector<std::string>&);
+	void setNoteByDialogInput(const NotePool&, const std::string&, const std::string&, const std::vector<std::string>&, const std::vector<std::string>&);
 
 	
 private:
