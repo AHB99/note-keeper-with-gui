@@ -78,6 +78,9 @@
          <property name="text">
           <string>Add Resource</string>
          </property>
+         <property name="autoDefault">
+          <bool>false</bool>
+         </property>
         </widget>
        </item>
       </layout>
@@ -117,6 +120,9 @@
           <widget class="QPushButton" name="removeResourceButton">
            <property name="text">
             <string>Remove Resource</string>
+           </property>
+           <property name="autoDefault">
+            <bool>false</bool>
            </property>
           </widget>
          </item>
@@ -191,6 +197,9 @@
            <property name="text">
             <string>Remove Tag</string>
            </property>
+           <property name="autoDefault">
+            <bool>false</bool>
+           </property>
           </widget>
          </item>
          <item>
@@ -229,6 +238,9 @@
         <widget class="QPushButton" name="okButton">
          <property name="text">
           <string>OK</string>
+         </property>
+         <property name="autoDefault">
+          <bool>false</bool>
          </property>
         </widget>
        </item>

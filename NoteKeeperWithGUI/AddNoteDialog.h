@@ -14,4 +14,7 @@ public:
 	private slots:
 	void on_addResourceButton_clicked();
 	void on_addTagsComboBox_activated(const QString&);
+	void on_removeResourceButton_clicked();
+	void on_removeTagButton_clicked();
+
 };
