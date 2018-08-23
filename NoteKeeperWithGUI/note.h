@@ -20,6 +20,8 @@ public:
 	void setNoteByInput(NotePool&);
 	int getID() const;
 	std::string getTitle() const;
+	std::string getMessage() const;
+	std::vector<std::string> getResources() const;
 	std::vector<std::string> getTags() const;
 	bool isTagInNote(const std::string&) const;
 	void storeNote(std::ofstream&) const;
@@ -29,6 +31,7 @@ public:
 	void addNoteToList(QListWidget* destinationList) const;
 
 	void setNoteByDialogInput(const NotePool&, const std::string&, const std::string&, const std::vector<std::string>&, const std::vector<std::string>&);
+	void editNoteByDialogInput(const std::string&, const std::string&, const std::vector<std::string>&, const std::vector<std::string>&);
 
 	
 private:

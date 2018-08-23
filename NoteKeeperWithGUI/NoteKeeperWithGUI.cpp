@@ -14,6 +14,7 @@ void NoteKeeperWithGUI::on_viewAllButton_clicked() {
 
 void NoteKeeperWithGUI::on_addNoteButton_clicked() {
 	AddNoteDialog addNoteDialog(this);
+	addNoteDialog.setWindowTitle("Add Note");
 	extractExistingTagsToComboBox(addNoteDialog.addTagsComboBox);
 
 	if (addNoteDialog.exec()) {
@@ -66,6 +67,28 @@ void NoteKeeperWithGUI::on_deleteNoteButton_clicked() {
 	}
 }
 
+void NoteKeeperWithGUI::on_editNoteButton_clicked() {
+	using EditNoteDialog = AddNoteDialog;
+	if (ui.notesList->selectedItems().count() != 0) {
+		EditNoteDialog editNoteDialog(this);
+		int itemRow = ui.notesList->currentRow();
+		NoteWidget* noteWidgetToEdit = qobject_cast<NoteWidget*>(ui.notesList->itemWidget(ui.notesList->item(itemRow)));
+		int noteID = noteWidgetToEdit->getID();
+		setDefaultEditDialog(noteID, &editNoteDialog);
+		
+		if (editNoteDialog.exec()) {
+			std::vector<std::string> tagsOfNewNote(extractListToVectorOfStrings(editNoteDialog.currentTagsList));
+			mainPool->updateTagPool(tagsOfNewNote);
+
+			mainPool->editNoteInPoolFromDialog(noteID, editNoteDialog.addTitleLineEdit->text().toStdString(), editNoteDialog.addMessagePlainTextEdit->toPlainText().toStdString(), extractListToVectorOfStrings(editNoteDialog.currentResourcesList), extractListToVectorOfStrings(editNoteDialog.currentTagsList));
+			ui.notesList->clear();
+			mainPool->fillListWithNotePool(ui.notesList);
+		
+		}
+	}
+}
+
+
 int askDeletionConfirmationByMessageBox() {
 	QMessageBox wantToDelete;
 	wantToDelete.setText("Are you sure you want to delete this note?");
@@ -73,6 +96,31 @@ int askDeletionConfirmationByMessageBox() {
 	wantToDelete.setStandardButtons(QMessageBox::Yes | QMessageBox::No);
 	wantToDelete.setDefaultButton(QMessageBox::No);
 	return wantToDelete.exec();
+}
+
+void NoteKeeperWithGUI::setDefaultEditDialog(int id, AddNoteDialog* addNoteDialog) {
+	using EditNoteDialog = AddNoteDialog;
+
+	Note noteToEdit;
+	try {
+		noteToEdit = mainPool->searchNoteByValidID(id);
+	}
+	catch (std::out_of_range) {
+		QApplication::instance()->quit();
+	}
+
+	addNoteDialog->setWindowTitle("Edit Note");
+	extractExistingTagsToComboBox(addNoteDialog->addTagsComboBox);
+
+	addNoteDialog->addTitleLineEdit->setText(QString::fromStdString(noteToEdit.getTitle()));
+	addNoteDialog->addMessagePlainTextEdit->setPlainText(QString::fromStdString(noteToEdit.getMessage()));
+	for (auto& resource : noteToEdit.getResources()) {
+		addNoteDialog->currentResourcesList->addItem(QString::fromStdString(resource));
+	}
+	for (auto& tag : noteToEdit.getTags()) {
+		addNoteDialog->currentTagsList->addItem(QString::fromStdString(tag));
+	}
+
 }
 
 

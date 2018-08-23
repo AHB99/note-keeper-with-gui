@@ -87,6 +87,11 @@ std::string Note::getTitle() const {
 	return title;
 }
 
+std::string Note::getMessage() const {
+	return message;
+}
+
+
 
 void Note::setValidID(const NotePool& destinationPool) {
 	int validID = destinationPool.getNextValidID();
@@ -119,6 +124,11 @@ bool Note::isTagInNote(const std::string& targetTag) const {
 std::vector<std::string> Note::getTags() const {
 	return tags;
 }
+
+std::vector<std::string> Note::getResources() const {
+	return resourceLinks;
+}
+
 
 int Note::findTagIndex(const std::string& targetTag) const {
 	for (int i = 0; i < tags.size(); ++i) {
@@ -176,12 +186,16 @@ NoteWidget* Note::convertToNoteWidget() const {
 }
 
 void Note::setNoteByDialogInput(const NotePool& destinationPool, const std::string& titleFromDialog, const std::string& messageFromDialog, const std::vector<std::string>& resourcesFromDialog, const std::vector<std::string>& tagsFromDialog) {
+	editNoteByDialogInput(titleFromDialog, messageFromDialog, resourcesFromDialog, tagsFromDialog);
+	this->setValidID(destinationPool);
+	this->setCurrentTime();
+}
+
+void Note::editNoteByDialogInput(const std::string& titleFromDialog, const std::string& messageFromDialog, const std::vector<std::string>& resourcesFromDialog, const std::vector<std::string>& tagsFromDialog){
 	title = titleFromDialog;
 	message = messageFromDialog;
 	resourceLinks = resourcesFromDialog;
 	tags = tagsFromDialog;
-	this->setValidID(destinationPool);
-	this->setCurrentTime();
 }
 
 void Note::addNoteToList(QListWidget* destinationList) const {

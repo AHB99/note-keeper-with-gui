@@ -42,6 +42,13 @@
          </property>
         </widget>
        </item>
+       <item>
+        <widget class="QPushButton" name="editNoteButton">
+         <property name="text">
+          <string>Edit Note</string>
+         </property>
+        </widget>
+       </item>
       </layout>
      </item>
     </layout>

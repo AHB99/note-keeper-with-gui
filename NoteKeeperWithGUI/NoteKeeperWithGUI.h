@@ -19,6 +19,7 @@ public:
 
 private:
 	void extractExistingTagsToComboBox(QComboBox*);
+	void setDefaultEditDialog(int, AddNoteDialog*);
 
 	Ui::NoteKeeperWithGUIClass ui;
 	NotePool* mainPool;
@@ -27,6 +28,7 @@ private:
 	void on_viewAllButton_clicked();
 	void on_addNoteButton_clicked();
 	void on_deleteNoteButton_clicked();
+	void on_editNoteButton_clicked();
 };
 
 std::vector<std::string> extractListToVectorOfStrings(QListWidget*);
