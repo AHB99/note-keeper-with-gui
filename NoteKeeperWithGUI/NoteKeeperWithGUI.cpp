@@ -88,6 +88,18 @@ void NoteKeeperWithGUI::on_editNoteButton_clicked() {
 	}
 }
 
+void NoteKeeperWithGUI::on_filterByTitleButton_clicked() {
+	FilterByTitleDialog filterByTitleDialog;
+	filterByTitleDialog.setWindowTitle("Filter By Title");
+	if (filterByTitleDialog.exec()) {
+		NotePool filteredNotes = mainPool->filterByTitle(filterByTitleDialog.filterByTitleLineEdit->text().toStdString());
+		if (!filteredNotes.isEmpty()) {
+			ui.notesList->clear();
+			filteredNotes.fillListWithNotePool(ui.notesList);
+		}
+	}
+}
+
 
 int askDeletionConfirmationByMessageBox() {
 	QMessageBox wantToDelete;

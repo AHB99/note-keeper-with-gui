@@ -27,6 +27,7 @@ public:
 	NotePool filterByTitle(const std::string&) const;
 	void editTitleByID(int, const std::string&);
 	void editMessageByID(int, const std::string&);
+	bool isEmpty() const;
 
 	void fillListWithNotePool(QListWidget*) const;
 

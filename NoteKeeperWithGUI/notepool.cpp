@@ -198,15 +198,7 @@ void NotePool::editNoteInPoolFromDialog(int id, const std::string& titleFromDial
 	targetPosition->editNoteByDialogInput(titleFromDialog,messageFromDialog,resourcesFromDialog,tagsFromDialog);
 }
 
-
-
-
-
-
-
-
-
-
-
-
+bool NotePool::isEmpty() const {
+	return pool.empty();
+}
 
