@@ -8,6 +8,7 @@
 #include "note.h"
 #include "notepool.h"
 #include "AddNoteDialog.h"
+#include <qmessagebox.h>
 
 class NoteKeeperWithGUI : public QWidget
 {
@@ -25,10 +26,11 @@ private:
 	private slots:
 	void on_viewAllButton_clicked();
 	void on_addNoteButton_clicked();
+	void on_deleteNoteButton_clicked();
 };
 
 std::vector<std::string> extractListToVectorOfStrings(QListWidget*);
-
+int askDeletionConfirmationByMessageBox();
 
 namespace configurations {
 	const std::string NOTE_FILE = "noteSave.txt";

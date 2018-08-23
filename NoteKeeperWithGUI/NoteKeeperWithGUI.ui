@@ -35,6 +35,13 @@
          </property>
         </widget>
        </item>
+       <item>
+        <widget class="QPushButton" name="deleteNoteButton">
+         <property name="text">
+          <string>Delete Note</string>
+         </property>
+        </widget>
+       </item>
       </layout>
      </item>
     </layout>

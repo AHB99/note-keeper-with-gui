@@ -10,4 +10,8 @@ class NoteWidget : public QWidget, public Ui::NoteWidget
 public:
 	NoteWidget(QWidget *parent = Q_NULLPTR);
 	~NoteWidget();
+	int getID() const;
+	void setID(int);
+private:
+	int idOfNote;
 };

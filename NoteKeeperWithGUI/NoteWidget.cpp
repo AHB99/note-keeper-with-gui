@@ -9,3 +9,10 @@ NoteWidget::NoteWidget(QWidget *parent)
 NoteWidget::~NoteWidget()
 {
 }
+
+int NoteWidget::getID() const {
+	return idOfNote;
+}
+void NoteWidget::setID(int givenID) {
+	idOfNote = givenID;
+}

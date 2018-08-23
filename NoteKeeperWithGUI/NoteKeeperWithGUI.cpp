@@ -8,6 +8,7 @@ NoteKeeperWithGUI::NoteKeeperWithGUI(QWidget *parent, NotePool* givenPool)
 }
 
 void NoteKeeperWithGUI::on_viewAllButton_clicked() {
+	ui.notesList->clear();
 	mainPool->fillListWithNotePool(ui.notesList);
 }
 
@@ -39,6 +40,42 @@ void NoteKeeperWithGUI::extractExistingTagsToComboBox(QComboBox* comboBox) {
 	}
 	comboBox->clearEditText();
 }
+
+void NoteKeeperWithGUI::on_deleteNoteButton_clicked() {
+	if (ui.notesList->selectedItems().count() != 0) {
+		int deleteConfirmation = askDeletionConfirmationByMessageBox();
+
+		if (deleteConfirmation == QMessageBox::Yes) {
+			int itemRow = ui.notesList->currentRow();
+			NoteWidget* noteWidgetToDelete = qobject_cast<NoteWidget*>(ui.notesList->itemWidget(ui.notesList->item(itemRow)));
+
+			if (noteWidgetToDelete) {
+				try {
+					mainPool->deleteNoteByID(noteWidgetToDelete->getID());
+				}
+				catch (std::out_of_range) {
+					QApplication::instance()->quit();
+				}
+
+				QListWidgetItem* itemToDelete = ui.notesList->takeItem(itemRow);
+				if (itemToDelete) {
+					delete itemToDelete;
+				}
+			}
+		}
+	}
+}
+
+int askDeletionConfirmationByMessageBox() {
+	QMessageBox wantToDelete;
+	wantToDelete.setText("Are you sure you want to delete this note?");
+	wantToDelete.setIcon(QMessageBox::Warning);
+	wantToDelete.setStandardButtons(QMessageBox::Yes | QMessageBox::No);
+	wantToDelete.setDefaultButton(QMessageBox::No);
+	return wantToDelete.exec();
+}
+
+
 
 
 
