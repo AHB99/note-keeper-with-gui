@@ -161,8 +161,7 @@ void Note::setMessage(const std::string& newMessage) {
 NoteWidget* Note::convertToNoteWidget() const {
 	NoteWidget* resultNoteWidget = new NoteWidget;
 	resultNoteWidget->setID(uniqueID);
-	std::string stdStringID = "#" + std::to_string(resultNoteWidget->getID());
-	resultNoteWidget->idLabel->setText(QString::fromStdString(stdStringID));
+	
 
 	resultNoteWidget->titleLabel->setText(QString::fromStdString(title));
 	resultNoteWidget->messageLabel->setText(QString::fromStdString(message));

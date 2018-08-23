@@ -45,9 +45,6 @@
     <ClCompile Include="tagpool.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
-    <ClCompile Include="TestWidg.cpp">
-      <Filter>Source Files</Filter>
-    </ClCompile>
     <ClCompile Include="NoteWidget.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
@@ -65,9 +62,6 @@
     <QtMoc Include="NoteKeeperWithGUI.h">
       <Filter>Header Files</Filter>
     </QtMoc>
-    <QtMoc Include="TestWidg.h">
-      <Filter>Header Files</Filter>
-    </QtMoc>
     <QtMoc Include="NoteWidget.h">
       <Filter>Header Files</Filter>
     </QtMoc>
@@ -83,9 +77,6 @@
   </ItemGroup>
   <ItemGroup>
     <QtUic Include="NoteKeeperWithGUI.ui">
-      <Filter>Form Files</Filter>
-    </QtUic>
-    <QtUic Include="TestWidg.ui">
       <Filter>Form Files</Filter>
     </QtUic>
     <QtUic Include="NoteWidget.ui">

@@ -6,8 +6,8 @@
    <rect>
     <x>0</x>
     <y>0</y>
-    <width>428</width>
-    <height>644</height>
+    <width>488</width>
+    <height>685</height>
    </rect>
   </property>
   <property name="windowTitle">
@@ -62,11 +62,18 @@
       </layout>
      </item>
      <item>
+      <widget class="Line" name="line">
+       <property name="orientation">
+        <enum>Qt::Horizontal</enum>
+       </property>
+      </widget>
+     </item>
+     <item>
       <layout class="QHBoxLayout" name="horizontalLayout_4">
        <item>
         <widget class="QLabel" name="enterResourceDirectLabel">
          <property name="text">
-          <string>Enter Resource:</string>
+          <string>Enter Resource:     </string>
          </property>
         </widget>
        </item>
@@ -144,11 +151,18 @@
       </layout>
      </item>
      <item>
+      <widget class="Line" name="line_2">
+       <property name="orientation">
+        <enum>Qt::Horizontal</enum>
+       </property>
+      </widget>
+     </item>
+     <item>
       <layout class="QHBoxLayout" name="horizontalLayout_6">
        <item>
         <widget class="QLabel" name="addTagsDirectLabel">
          <property name="text">
-          <string>Add tags:</string>
+          <string>Add tags:      </string>
          </property>
         </widget>
        </item>
