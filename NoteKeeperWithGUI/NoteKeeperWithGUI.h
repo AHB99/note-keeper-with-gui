@@ -33,6 +33,7 @@ private:
 	void on_editNoteButton_clicked();
 	void on_filterByTitleButton_clicked();
 	void on_filterByTagsButton_clicked();
+	void on_deleteTagsButton_clicked();
 };
 
 std::vector<std::string> extractListToVectorOfStrings(QListWidget*);

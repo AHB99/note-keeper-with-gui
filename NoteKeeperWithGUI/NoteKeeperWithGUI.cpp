@@ -114,6 +114,24 @@ void NoteKeeperWithGUI::on_filterByTagsButton_clicked() {
 	}
 }
 
+void NoteKeeperWithGUI::on_deleteTagsButton_clicked() {
+	FilterByTagsDialog filterByTagsDialog;
+	filterByTagsDialog.setWindowTitle("Delete Tags");
+	filterByTagsDialog.removeTagButton->setText("Remove Tag from Selection");
+	filterByTagsDialog.searchButton->setText("Delete");
+	extractExistingTagsToComboBox(filterByTagsDialog.tagsComboBox);
+	if (filterByTagsDialog.exec()) {
+		std::vector<std::string> tagsToDelete(extractListToVectorOfStrings(filterByTagsDialog.selectedTagsList));
+		for (auto& tagToDelete : tagsToDelete) {
+			mainPool->deleteTagFromNotes(tagToDelete);
+		}
+		ui.notesList->clear();
+		mainPool->fillListWithNotePool(ui.notesList);
+	}
+
+}
+
+
 
 
 int askDeletionConfirmationByMessageBox() {
