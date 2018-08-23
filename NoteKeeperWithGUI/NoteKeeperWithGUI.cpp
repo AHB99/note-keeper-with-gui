@@ -22,6 +22,7 @@ void NoteKeeperWithGUI::on_addNoteButton_clicked() {
 		mainPool->updateTagPool(tagsOfNewNote);
 
 		mainPool->addNoteToPoolFromDialog(addNoteDialog.addTitleLineEdit->text().toStdString(), addNoteDialog.addMessagePlainTextEdit->toPlainText().toStdString(), extractListToVectorOfStrings(addNoteDialog.currentResourcesList),tagsOfNewNote);
+		mainPool->storeNoteAndTagPool(configurations::NOTE_FILE, configurations::TAG_FILE);
 		ui.notesList->clear();
 		mainPool->fillListWithNotePool(ui.notesList);
 	}
@@ -57,12 +58,14 @@ void NoteKeeperWithGUI::on_deleteNoteButton_clicked() {
 				catch (std::out_of_range) {
 					QApplication::instance()->quit();
 				}
+				mainPool->storeNoteAndTagPool(configurations::NOTE_FILE, configurations::TAG_FILE);
 
 				QListWidgetItem* itemToDelete = ui.notesList->takeItem(itemRow);
 				if (itemToDelete) {
 					delete itemToDelete;
 				}
 			}
+
 		}
 	}
 }
@@ -81,6 +84,8 @@ void NoteKeeperWithGUI::on_editNoteButton_clicked() {
 			mainPool->updateTagPool(tagsOfNewNote);
 
 			mainPool->editNoteInPoolFromDialog(noteID, editNoteDialog.addTitleLineEdit->text().toStdString(), editNoteDialog.addMessagePlainTextEdit->toPlainText().toStdString(), extractListToVectorOfStrings(editNoteDialog.currentResourcesList), extractListToVectorOfStrings(editNoteDialog.currentTagsList));
+			mainPool->storeNoteAndTagPool(configurations::NOTE_FILE, configurations::TAG_FILE);
+
 			ui.notesList->clear();
 			mainPool->fillListWithNotePool(ui.notesList);
 		
@@ -125,6 +130,8 @@ void NoteKeeperWithGUI::on_deleteTagsButton_clicked() {
 		for (auto& tagToDelete : tagsToDelete) {
 			mainPool->deleteTagFromNotes(tagToDelete);
 		}
+		mainPool->storeNoteAndTagPool(configurations::NOTE_FILE, configurations::TAG_FILE);
+
 		ui.notesList->clear();
 		mainPool->fillListWithNotePool(ui.notesList);
 	}
