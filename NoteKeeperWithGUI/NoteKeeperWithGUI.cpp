@@ -100,6 +100,21 @@ void NoteKeeperWithGUI::on_filterByTitleButton_clicked() {
 	}
 }
 
+void NoteKeeperWithGUI::on_filterByTagsButton_clicked() {
+	FilterByTagsDialog filterByTagsDialog;
+	filterByTagsDialog.setWindowTitle("Filter By Tags");
+	extractExistingTagsToComboBox(filterByTagsDialog.tagsComboBox);
+	if (filterByTagsDialog.exec()) {
+		std::vector<std::string> tagsToSearch(extractListToVectorOfStrings(filterByTagsDialog.selectedTagsList));
+		NotePool filteredNotes = mainPool->filterByTags(tagsToSearch);
+		if (!filteredNotes.isEmpty()) {
+			ui.notesList->clear();
+			filteredNotes.fillListWithNotePool(ui.notesList);
+		}
+	}
+}
+
+
 
 int askDeletionConfirmationByMessageBox() {
 	QMessageBox wantToDelete;

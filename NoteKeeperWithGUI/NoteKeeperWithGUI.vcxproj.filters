@@ -57,6 +57,9 @@
     <ClCompile Include="FilterByTitleDialog.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
+    <ClCompile Include="FilterByTagsDialog.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <QtMoc Include="NoteKeeperWithGUI.h">
@@ -74,6 +77,9 @@
     <QtMoc Include="FilterByTitleDialog.h">
       <Filter>Header Files</Filter>
     </QtMoc>
+    <QtMoc Include="FilterByTagsDialog.h">
+      <Filter>Header Files</Filter>
+    </QtMoc>
   </ItemGroup>
   <ItemGroup>
     <QtUic Include="NoteKeeperWithGUI.ui">
@@ -89,6 +95,9 @@
       <Filter>Form Files</Filter>
     </QtUic>
     <QtUic Include="FilterByTitleDialog.ui">
+      <Filter>Form Files</Filter>
+    </QtUic>
+    <QtUic Include="FilterByTagsDialog.ui">
       <Filter>Form Files</Filter>
     </QtUic>
   </ItemGroup>

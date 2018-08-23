@@ -10,6 +10,7 @@
 #include "AddNoteDialog.h"
 #include <qmessagebox.h>
 #include "FilterByTitleDialog.h"
+#include "FilterByTagsDialog.h"
 
 class NoteKeeperWithGUI : public QWidget
 {
@@ -31,6 +32,7 @@ private:
 	void on_deleteNoteButton_clicked();
 	void on_editNoteButton_clicked();
 	void on_filterByTitleButton_clicked();
+	void on_filterByTagsButton_clicked();
 };
 
 std::vector<std::string> extractListToVectorOfStrings(QListWidget*);
